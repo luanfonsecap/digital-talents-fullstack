@@ -1,6 +1,7 @@
 import React from 'react';
 
 import './Header.css';
+import LinkWrapper from '../LinkWrapper';
 
 export default function Header() {
 
@@ -9,10 +10,10 @@ export default function Header() {
       <h1>Gestão de Sensores</h1>
       <ul>
         <div>
-          <li>Dashboard</li>
+          <li><LinkWrapper to="/">Dashboard</LinkWrapper></li>
         </div>
         <div>
-          <li>Sensores</li>
+          <li><LinkWrapper to="/sensors">Sensores</LinkWrapper></li>
         </div>
       </ul>
     </header>
