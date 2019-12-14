@@ -32,9 +32,17 @@ module.exports = {
     );
 
     return res.json(sensor);
-  }
+  },
 
+  async delete(req, res) {
+    const { id } = req.params;
 
-  
+    const sensor = await Sensor.destroy({
+      where: {
+        id
+      }
+    });
 
+    return res.json(sensor);
+  }  
 };
