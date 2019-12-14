@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Header from './Components/Header/Header';
 import AddSensor from './Components/AddSensor/AddSensor';
+import LastAdded from './Components/LastAdded/LastAdded';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <main className="custom-container">
 
           <AddSensor />
+          <LastAdded />
 
         </main>
       </>

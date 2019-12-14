@@ -1,0 +1,13 @@
+.last-added {
+  width:55%;
+  height: 55%;
+}
+
+.table-dark {
+  border-radius: .5em;
+}
+
+.last-added .btn {
+  margin: .3em 0;
+  height: 100%;
+}
