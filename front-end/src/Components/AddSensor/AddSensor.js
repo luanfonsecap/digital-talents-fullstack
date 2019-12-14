@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import './AddSensor.css';
 import info from '../../assets/info.svg';
 
 export default function AddSensor() {
+  const [height, setHeight] = useState('');
+  const [width, setWidth] = useState('');
+  const [lenth, setLength] = useState('');
+  const [voltage, setBrand] = useState('');
+  const [type, setType] = useState('');
+  const [lastMeasure, setMeasure] = useState('');
+  const [location, setLocation] = useState('');
+
+  
 
   return (
     <>
