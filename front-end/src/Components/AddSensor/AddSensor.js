@@ -15,7 +15,7 @@ export default function AddSensor() {
   async function handleSubmit(e) {
     e.preventDefault();
 
-    api.post('/sensor',{
+    api.post('/sensor', {
       height,
       width,
       length,
@@ -23,13 +23,29 @@ export default function AddSensor() {
       brand,
       type,
     }).then(res => {
-      if(res.status === 200) {
+      if (res.data.length !== 1) {
         alert('Sensor Cadastrado!');
       }
+      setHeight('');
+      setWidth('');
+      setLength('');
+      setVoltage('');
+      setBrand('');
     })
-    .catch(res => console.log(res));
+      .catch(res => {
+        console.log(res);
+        alert('Não foi possível cadastrar o sensor!');
+      });
   }
 
+  function handleCancel() {
+    setHeight('');
+    setWidth('');
+    setLength('');
+    setVoltage('');
+    setBrand('');
+  }
+  
   return (
     <>
       <section className="add-sensor card-custom">
@@ -44,15 +60,15 @@ export default function AddSensor() {
         <div>
           <form onSubmit={handleSubmit}>
             <label htmlFor="height">Altura *</label>
-            <input id="height" type="number" placeholder="Digite a altura do sensor" required onChange={e => setHeight(e.target.value)}/>
+            <input value={height} id="height" type="number" placeholder="Digite a altura do sensor" required onChange={e => setHeight(e.target.value)} />
             <label htmlFor="width">Largura *</label>
-            <input id="width" type="number" placeholder="Digite a largura do sensor" required onChange={e => setWidth(e.target.value)} />
+            <input value={width} id="width" type="number" placeholder="Digite a largura do sensor" required onChange={e => setWidth(e.target.value)} />
             <label htmlFor="length">Comprimento *</label>
-            <input id="length" type="number" placeholder="Digite a comprimento do sensor" required onChange={e => setLength(e.target.value)} />
+            <input value={length} id="length" type="number" placeholder="Digite a comprimento do sensor" required onChange={e => setLength(e.target.value)} />
             <label htmlFor="voltage">Tensão *</label>
-            <input id="voltage" type="number" placeholder="Digite a tensão do sensor" required onChange={e => setVoltage(e.target.value)} />
+            <input value={voltage} id="voltage" type="number" placeholder="Digite a tensão do sensor" required onChange={e => setVoltage(e.target.value)} />
             <label htmlFor="brand">Marca *</label>
-            <input id="brand" type="text" placeholder="Digite a marca do sensor" required onChange={e => setBrand(e.target.value)} />
+            <input value={brand} id="brand" type="text" placeholder="Digite a marca do sensor" required onChange={e => setBrand(e.target.value)} />
             <label htmlFor="type">Tipo *</label>
             <select defaultValue="" onChange={e => setType(e.target.value)} id="type">
               <option value="" disabled>Escolha um tipo</option>
@@ -64,7 +80,7 @@ export default function AddSensor() {
             </select>
             <div>
               <button type="submit" className="btn-save btn">Salvar</button>
-              <button type="reset" className="btn-cancel btn">Cancelar</button>
+              <button type="reset" onClick={handleCancel} className="btn-cancel btn">Cancelar</button>
             </div>
           </form>
         </div>

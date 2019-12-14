@@ -16,13 +16,25 @@ export default function UpdateSensor() {
       lastMeasure,
       location
     }).then(res => {
-      if (res.status === 200) {
+      console.log(res.data);
+      if (res.data.length !== 1) {
         alert('Sensor Atualizado!');
+      } else {
+        alert('Identificador de registro não existe!');
       }
+      setId('');
+      setLastMeasure('');
+      setLocation('');
     }).catch(err => {
       console.log(err);
       alert('Não foi possível atualizar o sensor!');
     })
+  }
+
+  function handleCancel() {
+    setId('');
+    setLastMeasure('');
+    setLocation('');
   }
 
   return (
@@ -34,16 +46,16 @@ export default function UpdateSensor() {
           <img src={info} alt="Adicionar" className="add-icon" />
         </div>
       </div>
-      <form onSubmit={handleSubmit}>
+      <form id="update-form" onSubmit={handleSubmit}>
         <label htmlFor="lastMeasure">Identificação *</label>
-        <input type="number" placeholder="Digite o ID do sensor a ser alterado" required onChange={e => setId(e.target.value)} />
+        <input value={id} type="number" placeholder="Digite o ID do sensor a ser alterado" required onChange={e => setId(e.target.value)} />
         <label htmlFor="lastMeasure">Última Medição *</label>
-        <input type="number" placeholder="Digite o último valor do sensor" onChange={e => setLastMeasure(e.target.value)} />
+        <input value={lastMeasure} type="number" placeholder="Digite o último valor do sensor" onChange={e => setLastMeasure(e.target.value)} />
         <label htmlFor="location">Localização *</label>
-        <input type="text" placeholder="Digite a última localização do sensor" onChange={e => setLocation(e.target.value)} />
+        <input value={location} type="text" placeholder="Digite a última localização do sensor" onChange={e => setLocation(e.target.value)} />
         <div>
           <button type="submit" className="btn-save btn">Salvar</button>
-          <button type="reset" className="btn-cancel btn">Cancelar</button>
+          <button type="reset" onClick={handleCancel} className="btn-cancel btn">Cancelar</button>
         </div>
       </form>
     </section>

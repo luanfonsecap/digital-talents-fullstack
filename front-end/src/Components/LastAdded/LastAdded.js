@@ -41,6 +41,7 @@ export default function LastAdded() {
           <div>
             <table className="table table-dark">
               <thead>
+                <th scope="col">Id</th>
                 <th scope="col">Marca</th>
                 <th scope="col">Ultima Medição</th>
                 <th scope="col">Localização</th>
@@ -49,6 +50,7 @@ export default function LastAdded() {
               <tbody>
                 {list.map(sensor => (
                   <tr key={sensor.id}>
+                    <td>{sensor.id}</td>
                     <td>{sensor.brand}</td>
                     <td>{sensor.lastMeasure}</td>
                     <td>{sensor.location}</td>
