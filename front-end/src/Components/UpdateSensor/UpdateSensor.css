@@ -1,0 +1,33 @@
+.card-custom {
+  display: flex;
+  flex-direction: column;
+  margin: 2em;
+  background-color: #365F91;
+  padding: 1em;
+  color: #fff;
+  border-radius: .5em;
+  box-shadow: 0em 0em .3em #000;
+}
+
+.update-sensor form {
+  display: flex;
+  flex-direction: column;
+  border: .1em dashed #fff;
+  padding: 1em;
+  width: 90%;
+}
+
+.update-sensor label {
+  margin: .5em 0;
+  font-size: 1em;
+}
+
+.update-sensor input {
+  font-size: .9em;
+  border-radius: .2em;
+  padding: .4em;
+}
+
+.update-sensor .btn {
+  margin: .5em 1em;
+}

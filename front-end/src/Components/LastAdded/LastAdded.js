@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import './LastAdded.css';
 import info from '../../assets/info.svg';
 import api from '../../services/api';
+import UpdateSensor from '../UpdateSensor/UpdateSensor';  
 
 export default function LastAdded() {
   const [list, setList] = useState([]);
@@ -43,6 +44,7 @@ export default function LastAdded() {
             </table>
           </div>
         </article>
+        <UpdateSensor />
       </section>
     </>
   );
