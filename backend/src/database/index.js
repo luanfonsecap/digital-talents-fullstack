@@ -5,6 +5,6 @@ const Sensor = require('../models/Sensor');
 
 const connection = new Sequelize(dbConfig);
 
-Sensor.init();
+Sensor.init(connection);
 
 module.exports = connection;
