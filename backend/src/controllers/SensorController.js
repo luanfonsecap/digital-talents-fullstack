@@ -16,6 +16,24 @@ module.exports = {
     return res.json(sensor);
   },
 
+  async update(req, res) {
+    const { id } = req.params;
+    const { height, width, length, voltage, brand, type, lastMeasure, location } = req.body;
+
+    const sensor = await Sensor.update(
+      { height, width, length, voltage, brand, type, lastMeasure, location },
+      {
+        where: {
+          id: {
+            [Op.eq]: id
+          }
+        }
+      }
+    );
+
+    return res.json(sensor);
+  }
+
 
   
 
