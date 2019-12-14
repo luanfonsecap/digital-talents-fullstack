@@ -1,0 +1,33 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 3em;
+  background-color: #8DB3E2;
+  padding: 1em;
+  box-shadow: 0em .2em .5em #dadada;
+}
+
+.header ul {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  margin-bottom: 0;
+}
+
+.header li {
+  margin: 1em;
+  height: 100%;
+}
+
+.header div {
+  height: 100%;
+  border-radius: 1em;
+}
+
+.header div:hover {
+  background-color: #BABABF;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}

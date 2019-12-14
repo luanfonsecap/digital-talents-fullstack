@@ -1,0 +1,69 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-sizing: content-box;
+}
+
+html, body {
+  height: 100vh;
+  font-size: 15px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.card-custom {
+  display: flex;
+  flex-direction: column;
+  margin: 2em;
+  background-color: #365F91;
+  padding: 1em;
+  color: #fff;
+  border-radius: .5em;
+  box-shadow: 0em 0em .3em #000;
+}
+
+.tooltip-custom {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+.tooltip-custom .tooltiptext-custom {
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding:.5em;
+  font-size: .8em;
+  position: absolute;
+  z-index: 1;
+  bottom: 120%;
+  left: 50%;
+  margin-left: -65px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.tooltip-custom .tooltiptext-custom::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+.tooltip-custom:hover .tooltiptext-custom {
+  visibility: visible;
+  opacity: 1;
+}
