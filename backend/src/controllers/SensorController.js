@@ -8,6 +8,14 @@ module.exports = {
     return res.json(sensor);
   },
 
+  async store(req, res) {
+    const { height, width, length, voltage, brand, type, lastMeasure, location } = req.body;
+
+    const sensor = await Sensor.create({ height, width, length, voltage, brand, type, lastMeasure, location });
+
+    return res.json(sensor);
+  },
+
 
   
 
