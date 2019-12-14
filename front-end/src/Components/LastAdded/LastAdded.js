@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import './LastAdded.css';
 import info from '../../assets/info.svg';
 import api from '../../services/api';
-import UpdateSensor from '../UpdateSensor/UpdateSensor';  
+import UpdateSensor from '../UpdateSensor/UpdateSensor';
 
 export default function LastAdded() {
   const [list, setList] = useState([]);
@@ -12,6 +12,20 @@ export default function LastAdded() {
     api.get('/sensor')
       .then(res => setList(res.data));
   }, []);
+
+  async function handleDelete(id) {
+    api.delete(`/sensor/${id}/delete`)
+      .then(res => {
+        if (res.status === 200) {
+          alert('Registro Excluído!');
+        }
+        api.get('/sensor')
+          .then(res => setList(res.data));
+      }).catch(err => {
+        console.log(err);
+        alert('Não foi possível excluir registro!');
+      })
+  }
 
   return (
     <>
@@ -38,7 +52,7 @@ export default function LastAdded() {
                     <td>{sensor.brand}</td>
                     <td>{sensor.lastMeasure}</td>
                     <td>{sensor.location}</td>
-                    <td className="btn">Excluir</td>
+                    <td className="btn" onClick={() => handleDelete(sensor.id)}>Excluir</td>
                   </tr>))}
               </tbody>
             </table>
